@@ -1,0 +1,15 @@
+#!/bin/bash
+convert -background white -fill black -pointsize 54 label:'tene sūrayaḥ' test.png
+
+IFS=','
+
+echo "start"
+
+while read id sen
+do
+
+convert -background white -fill black -pointsize 54 label:$sen ./images/$id.png
+
+done < sample.csv
+
+echo "done"
