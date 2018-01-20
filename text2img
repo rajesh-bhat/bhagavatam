@@ -1,5 +1,4 @@
 #!/bin/bash
-convert -background white -fill black -pointsize 54 label:'tene sūrayaḥ' test.png
 
 IFS=','
 
