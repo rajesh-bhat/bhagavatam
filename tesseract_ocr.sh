@@ -2,12 +2,12 @@
 docker ps -f name=t4re
 docker restart t4re
 TASK_TMP_DIR=temp
+echo "====== Removing temp directory in container ======"
+docker exec -it t4re rm -r ./$TASK_TMP_DIR
 RESULT_DIR="$1_$2"
-mkdir RESULT_DIR
+mkdir $RESULT_DIR
 echo "====== TASK $TASK_TMP_DIR started ======"
 docker exec -it t4re mkdir \-p ./$TASK_TMP_DIR/
-docker exec -it t4re mkdir \-p ./$TASK_TMP_DIR/
-
 for file in $1/*
 do
     if [[ -f $file ]]; then
@@ -21,4 +21,3 @@ do
     fi
 done
 echo "====== Result files was copied to ======"
-docker exec -it t4re rm -r \-p ./$TASK_TMP_DIR/*
